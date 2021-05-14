@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zápis v html, css a javascript.">
+    <meta property="og:title" content="https://ahyt.wz.sk"/>
+    <meta property="og:description" content="Zápis v html, css a javascript.">
+    <meta property="og:site_name" content="ahyt.wz.sk">
+    <meta property="og:image" content="https://ahyt.wz.sk/js.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="HandheldFriendly" content="true" />
+    <title>Zápis v html, css a javascript - ahyt.wz.sk</title>
+    <style>
+    *{box-sizing:border-box;}
+    html{scroll-behavior: smooth;}
+      body {background-image: url("kresba.png");background-repeat:no-repeat;
+      background-attachment:fixed;background-position:top center;font-size: 100%;
+    text-align: center;}
+      #vrch{margin-top:250px;}
+      #vrch p {display:inline;}
+      a:hover img{transform:scale(1.5);-webkit-transition: 1s;transition: 1s;}
+      a{text-decoration: none;color:black;padding-left: 15px;}
+      a:hover{color:red;}
+      h3{text-align: center;}
+      input{box-sizing: border-box;}
+      input[type=submit]{background-color: green;color: white;}
+      table.center{margin-left: auto;margin-right: auto;}
+      #t1{margin-top:100px;}
+      #t1 td{padding:20px;}
+      #message{display: none;}
+      .valid {color: green;}
+      .valid::before{position: relative;left: -5px;content: "✔";}
+      .invalid{color: red;}
+      .invalid::before{position: relative;left: -5px;content: "✖";}
+      @media only screen and (max-width: 700px){#vrch p {display: block;}#t1 td{padding:0px;}}
+    </style>
+  </head>
+  <body>
+
+    <div id="vrch">
+      <h3>Jur</h3>
+      <p><a href="index.html">Domov</a></p>
+      <p><a href="dubova.html">Rajecká Dolina</a></p>
+      <p><a href="zapis.html">Zápis v JavaScripte</a></p>
+      <p><a href="mailto:jur3@protonmail.com">jur3@protonmail.com</a>
+      <a href="https://www.facebook.com/juraj.vanak.3" target="_blank">
+    <img src="facebook.png" alt="fb"></a></p>
+   </div>
+
+
+
+<div id="t1">
+  <h3>Zápis v JavaScripte: </h3>
+  <form onsubmit="pis()">
+<table id="1t" class="center">
+  <tr>
+    <td><label for="fname">Vaše Meno: </label></td>
+    <td><input type="text" name="fname" value="" required></td>
+  </tr>
+  <tr>
+    <td><label for="lname">Vaše Priezvisko: </label></td>
+    <td><input type="text" name="lname" value="" required></td>
+  </tr>
+  <tr>
+    <td><label for="email">Váš Email: </label></td>
+    <td><input type="email" name="email" value="" required></td>
+  </tr>
+  <tr>
+    <td><label for="heslo">Heslo: </label></td>
+    <td><input type="password" id="heslo" name="heslo" minlength="8"
+  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}" required></td>
+  <td><input type="checkbox" onclick="ukaz()"> &#128065;</td>
+  </tr>
+  <tr>
+    <td><label for="heslo1">Overenie Hesla: </label></td>
+    <td><input type="password" id="heslo1" name="heslo1" minlength="8"
+  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}" required></td>
+  <td><input type="checkbox"  onclick="ukaz1()"> &#128065; </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align:center"><input type="submit" value="Pošli"></td>
+  </tr>
+</table>
+</form>
+</div>
+
+<div id="message">
+  <h3>Heslo musí obsahovať: </h3>
+    <table class="center">
+      <tr>
+        <td><p id="nizke" class="invalid">Aspoň jedno malé písmeno</p></td>
+      </tr>
+      <tr>
+        <td><p id="vysoke" class="invalid">Aspoň jedno veľké písmeno</p></td>
+      </tr>
+      <tr>
+        <td><p id="cislo" class="invalid">Aspoň jedno číslo</p></td>
+      </tr>
+      <tr>
+        <td><p id="dlzka" class="invalid">Najmenej 8 znakov</p></td>
+      </tr>
+      <tr>
+        <td><p id="zhoda" class="invalid">Heslá sú rovnaké</p></td>
+      </tr>
+    </table>
+</div>
+
+<script>
+
+function pis()
+{
+  alert("Vaše údaje neboli odoslané, toto je len pre ukážku práce v JavaScripte.");
+}
+
+function ukaz()
+{
+  var u = document.getElementById("heslo");
+  if(u.type === "password"){u.type = "text";}
+  else{u.type = "password";}
+}
+
+function ukaz1()
+{
+  var u = document.getElementById("heslo1");
+  if(u.type === "password"){u.type = "text";}
+  else{u.type = "password";}
+}
+
+var zadanie = document.getElementById("heslo");
+var zadanie1 = document.getElementById("heslo1");
+var nizke = document.getElementById("nizke");
+var vysoke = document.getElementById("vysoke");
+var cislo = document.getElementById("cislo");
+var dlzka = document.getElementById("dlzka");
+var zhoda = document.getElementById("zhoda");
+
+zadanie.onfocus = function(){document.getElementById("message").style.display = "block";
+document.getElementById("message").scrollIntoView();}
+zadanie1.onfocus = function(){document.getElementById("message").style.display = "block";
+document.getElementById("message").scrollIntoView();}
+
+zadanie.onkeyup = function()
+{
+  var nizkePismena = /[a-z]/g;
+  if(zadanie.value.match(nizkePismena))
+  {
+    nizke.classList.remove("invalid");
+    nizke.classList.add("valid");
+  }
+  else
+  {
+    nizke.classList.remove("valid");
+    nizke.classList.add("invalid");
+  }
+
+  var vysokePismena = /[A-Z]/g;
+  if(zadanie.value.match(vysokePismena))
+  {
+    vysoke.classList.remove("invalid");
+    vysoke.classList.add("valid");
+  }
+  else
+  {
+    vysoke.classList.remove("valid");
+    vysoke.classList.add("invalid");
+  }
+
+  var cisla = /[0-9]/g;
+  if(zadanie.value.match(cisla))
+  {
+    cislo.classList.remove("invalid");
+    cislo.classList.add("valid");
+  }
+  else
+  {
+    cislo.classList.remove("valid");
+    cislo.classList.add("invalid");
+  }
+
+  if(zadanie.value.length >= 8)
+  {
+    dlzka.classList.remove("invalid");
+    dlzka.classList.add("valid");
+  }
+  else
+  {
+    dlzka.classList.remove("valid");
+    dlzka.classList.add("invalid");
+  }
+
+  if(zadanie.value == zadanie1.value && zadanie.value != 0)
+  {
+    zhoda.classList.remove("invalid");
+    zhoda.classList.add("valid");
+  }
+  else
+  {
+    zhoda.classList.remove("valid");
+    zhoda.classList.add("invalid");
+  }
+}
+
+zadanie1.onkeyup = function()
+{
+  var nizkePismena = /[a-z]/g;
+  if(zadanie1.value.match(nizkePismena))
+  {
+    nizke.classList.remove("invalid");
+    nizke.classList.add("valid");
+  }
+  else
+  {
+    nizke.classList.remove("valid");
+    nizke.classList.add("invalid");
+  }
+
+  var vysokePismena = /[A-Z]/g;
+  if(zadanie1.value.match(vysokePismena))
+  {
+    vysoke.classList.remove("invalid");
+    vysoke.classList.add("valid");
+  }
+  else
+  {
+    vysoke.classList.remove("valid");
+    vysoke.classList.add("invalid");
+  }
+
+  var cisla = /[0-9]/g;
+  if(zadanie1.value.match(cisla))
+  {
+    cislo.classList.remove("invalid");
+    cislo.classList.add("valid");
+  }
+  else
+  {
+    cislo.classList.remove("valid");
+    cislo.classList.add("invalid");
+  }
+
+  if(zadanie1.value.length >= 8)
+  {
+    dlzka.classList.remove("invalid");
+    dlzka.classList.add("valid");
+  }
+  else
+  {
+    dlzka.classList.remove("valid");
+    dlzka.classList.add("invalid");
+  }
+
+  if(zadanie1.value == zadanie.value && zadanie1.value != 0)
+  {
+    zhoda.classList.remove("invalid");
+    zhoda.classList.add("valid");
+  }
+  else
+  {
+    zhoda.classList.remove("valid");
+    zhoda.classList.add("invalid");
+  }
+}
+</script>
+
+  </body>
+</html>

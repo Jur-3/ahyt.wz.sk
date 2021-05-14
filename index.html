@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Môj web, kde sa učím html, css a javascript.">
+    <meta property="og:title" content="https://ahyt.wz.sk"/>
+    <meta property="og:description" content="Môj web, kde sa učím html, css a javascript.">
+    <meta property="og:site_name" content="ahyt.wz.sk">
+    <meta property="og:image" content="https://ahyt.wz.sk/js.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="HandheldFriendly" content="true" />
+    <title>https://ahyt.wz.sk</title>
+    <style>
+    *{box-sizing:border-box;}
+      body {background-image: url("kresba.png");background-repeat:no-repeat;
+      background-attachment:fixed;background-position:top center;font-size: 100%;text-align: center;}
+      #vrch{margin-top:250px;}
+      #vrch p {display:inline;}
+      a:hover img{transform:scale(1.5);-webkit-transition: 1s;transition: 1s;}
+      a{text-decoration: none;color:black;padding-left: 15px;}
+      a:hover{color:red;}
+      #dole{margin-top:100px;}
+      @media only screen and (max-width: 700px){#vrch p {display: block;} #dole img{width:100%;}}
+    </style>
+  </head>
+  <body>
+
+    <div id="vrch">
+      <h3>Jur</h3>
+      <p><a href="index.html">Domov</a></p>
+      <p><a href="dubova.html">Rajecká Dolina</a></p>
+      <p><a href="zapis.html">Zápis v JavaScripte</a></p>
+      <p><a href="mailto:jur3@protonmail.com">jur3@protonmail.com</a>
+      <a href="https://www.facebook.com/juraj.vanak.3" target="_blank">
+    <img src="facebook.png" alt="fb"></a></p>
+   </div>
+
+      <div id="dole">
+      <p>Učím sa programovať v HTML, CSS a JavaScripte <img id="obra" src="js.jpg"></p>
+      <p>Debian Cinnamon</p>
+   </div>
+
+   <script type="text/javascript">
+   var x = document.getElementById("obra");
+   x.addEventListener("mouseover",zmena);
+   x.addEventListener("mouseout",navrat);
+   function zmena()
+   {
+     document.getElementById("obra").style.transform = "rotate(20deg)";
+   }
+   function navrat()
+   {
+     document.getElementById("obra").style.transform = "rotate(0deg)";
+   }
+   </script>
+
+  </body>
+</html>
