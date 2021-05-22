@@ -14,34 +14,66 @@
     <meta name="HandheldFriendly" content="true" />
     <title>rajecká dolina, žibrid, kľak, vrch baba - ahyt.wz.sk</title>
     <style>
+    html{scroll-behavior: smooth;}
     *{box-sizing:border-box;}
       body {background-image: url("kresba.png");background-repeat:no-repeat;
       background-attachment:fixed;background-position:top center;font-size: 100%;
-    text-align: center;}
+    text-align: center;margin-left:20%;margin-right:20%;}
+    .navbar{background-color:rgba(192,192,192,0.3);top:0px;width:60%;position:fixed;
+    transition: top 0.6s;z-index: 1;height:50px;}
+    .navbar a{color:black;padding: 16px;text-decoration: none;font-size: 17px;
+    position:relative;top:15px;}
+    #section{height:25%;padding-top:90px;}
+    #section1{height:25%;padding-top:50px;}
+    #section2{height:25%;padding-top:50px;}
+    #section3{height:25%;padding-top:50px;}
       #vrch{margin-top:250px;}
       #vrch p {display:inline;}
       #vrch a:hover img{transform:scale(1.5);-webkit-transition: 1s;transition: 1s;}
       a{text-decoration: none;color:black;padding-left: 15px;}
       a:hover{color:red;}
       #dole{margin-top:100px;}
-      #dole img{width:70%;border-radius:8px;}
-      @media only screen and (max-width: 700px){#vrch p {display: block;}
-      #dole img{width:100%;border-radius:8px;} a{padding-left:0px;}}
+      #dole img{width:100%;border-radius:8px;}
+      #dole img:hover{cursor:pointer;}
+      .vokne{display: none;position:fixed;z-index-1;padding-top: 100px;left:0;top:0;
+         width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);
+          background-color:rgba(0,0,0,0.9);}
+      .vokneObsah{margin:auto;display:block;width:100%;max-width:1500px;}
+      .zavriet{position:absolute;top:35px;right:35px;color:white;font-size:40px;
+         font-weight:bold;transition:0.3s;}
+      .zavriet:hover {color:gray;cursor:pointer;}
+      @media only screen and (max-width: 1200px){body {margin-right:0px; margin-left:0px;}
+         #dole img{width:100%;border-radius:8px;} a{padding-left:0px;}.navbar{width:100%;}}
+        @media only screen and (max-width: 600px){#vrch p {display: block;}}
+      @media only screen and (max-width: 450px){body {margin-right:0px; margin-left:0px;}
+    .navbar{width:100%;height:100px;padding-top:10px}.navbar a{padding-top:10px}}
     </style>
   </head>
   <body>
+      <div class="navbar" id="navbar">
+      <a href="#section">Rajecká Dolina</a>
+      <a href="#section1">Žibrid</a>
+      <a href="#section2">Kľak</a>
+      <a href="#section3">Vrch Baba</a>
+          </div>
 
     <div id="vrch">
       <h3>Jur</h3>
-      <p><a href="index.html">Domov</a></p>
-      <p><a href="dubova.html">Rajecká Dolina</a></p>
-      <p><a href="zapis.html">Zápis v JavaScripte</a></p>
-      <p><a href="mailto:jur3@protonmail.com">jur3@protonmail.com</a>
+      <p><a href="index.html"onmouseover="udkaz()"onmouseout="nedkaz()">Domov
+        <canvas id="kreslim" width="10px" height="10px"></a></p>
+      <p><a href="dubova.html"onmouseover="udkaz1()"onmouseout="nedkaz1()">
+        Rajecká Dolina <canvas id="kreslim1" width="10px" height="10px"></a></p>
+      <p><a href="zapis.html"onmouseover="udkaz2()"onmouseout="nedkaz2()">
+        Zápis v JavaScripte <canvas id="kreslim2" width="10px" height="10px"></a></p>
+        <p><a href="odkaz.html"onmouseover="udkaz3()"onmouseout="nedkaz3()">
+        Ďalší návrh <canvas id="kreslim3" width="10px" height="10px"></a></p>
+      <p><a href="mailto:jur3@protonmail.com"onmouseover="udkaz4()"onmouseout="nedkaz4()">
+        jur3@protonmail.com <canvas id="kreslim4" width="10px" height="10px"></a>
       <a href="https://www.facebook.com/juraj.vanak.3" target="_blank">
     <img src="facebook.png" alt="fb"></a></p>
    </div>
 
-		<div id="dole">
+<div id="dole">
 
 			<h1>Rajecká dolina</h1>
 			<h2>Výhľadňa Dubová</h2>
@@ -53,24 +85,167 @@
 			tým prekrásnym oblakom.
 			</p>
 
-        <a href="celyob1.html"><img src="mob1.jpg" alt="Rajecká dolina"></a>
+    <div class="main" id="section">
+        <img src="mob1.jpg" id="mojObraz1" alt="Rajecká dolina">
 		    <p>Rajec a rajecká dolina.</p>
-        <p><a href="dubova.html">^ Hore</a></p>
-		    <a href="celyob2.html"><img src="mob2.jpg" alt="Žibrid"></a>
+      <div class="vokne" id="mneVokne1">
+        <span class="zavriet">&times;</span>
+        <img class="vokneObsah" id="obraz1">
+      </div>
+		</div>
+    <div class="main" id="section1">
+		    <img src="mob2.jpg" id="mojObraz2" alt="Žibrid">
 		    <p>A to je Žibrid, ktorý je na sever a jevyšší ako Dubová.</p>
-        <p><a href="dubova.html">^ Hore</a></p>
-		    <a href="celyob4.html"><img src="mob4.jpg" alt="Kľak"></a>
+        <div class="vokne" id="mneVokne2">
+          <span class="zavriet">&times;</span>
+          <img class="vokneObsah" id="obraz2">
+        </div>
+		</div>
+    <div class="main" id="section2">
+		    <img src="mob4.jpg" id="mojObraz3" alt="Kľak">
 		    <p>Práve Kľak som chcel vyfotiť, tak ako je ho krásne vidieť
 		    , ale on je vzdušnou čiarou asi 15km,<br> takže tu sa slabota
 		    mobilneho fotoaparátu a zrejme aj skúseností (ne)fotografa
 		    prejavili asi najviac.</p>
-        <p><a href="dubova.html">^ Hore</a></p>
-		    <a href="celyob5.html"><img src="mob5.jpg" alt="Baba"></a>
+        <div class="vokne" id="mneVokne3">
+          <span class="zavriet">&times;</span>
+          <img class="vokneObsah" id="obraz3">
+        </div>
+		 </div>
+        <div class="main" id="section3">
+		    <img src="mob5.jpg" id="mojObraz4" alt="Vrch Baba">
 		    <p>Tu vidieť za Rajcom malú obec Ďurčiná a za ňou
 		    prekrásne vrchy. Jeden z nich sa volá Baba.</p>
-        <p><a href="dubova.html">^ Hore</a></p><br><br>
+        <div class="vokne" id="mneVokne4">
+          <span class="zavriet">&times;</span>
+          <img class="vokneObsah" id="obraz4">
+        </div>
+		  </div>
 
-			</div>
+</div>
+
+<script>
+
+var poslMiesto = window.pageYOffset;
+window.onscroll = function()
+{
+  var terazMiesto = window.pageYOffset;
+  if(poslMiesto > terazMiesto)
+  {
+    document.getElementById("navbar").style.top = "0";
+  }
+  else
+  {
+    document.getElementById("navbar").style.top = "-100px";
+  }
+  poslMiesto = terazMiesto;
+}
+
+var vokne = document.getElementById("mneVokne1");
+var obraz = document.getElementById("mojObraz1");
+var vokneObraz = document.getElementById("obraz1");
+obraz.onclick = function(){vokne.style.display = "block";vokneObraz.src = "ob1.jpg";}
+var rozpatie = document.getElementsByClassName("zavriet")[0];
+rozpatie.onclick = function(){vokne.style.display = "none";}
+
+var vokne = document.getElementById("mneVokne2");
+var obraz = document.getElementById("mojObraz2");
+var vokneObraz = document.getElementById("obraz2");
+obraz.onclick = function(){vokne.style.display = "block";vokneObraz.src = "ob2.jpg";}
+var rozpatie = document.getElementsByClassName("zavriet")[1];
+rozpatie.onclick = function(){vokne.style.display = "none";}
+
+var vokne = document.getElementById("mneVokne3");
+var obraz = document.getElementById("mojObraz3");
+var vokneObraz = document.getElementById("obraz3");
+obraz.onclick = function(){vokne.style.display = "block";vokneObraz.src = "ob4.jpg";}
+var rozpatie = document.getElementsByClassName("zavriet")[2];
+rozpatie.onclick = function(){vokne.style.display = "none";}
+
+var vokne = document.getElementById("mneVokne4");
+var obraz = document.getElementById("mojObraz4");
+var vokneObraz = document.getElementById("obraz4");
+obraz.onclick = function(){vokne.style.display = "block";vokneObraz.src = "ob5.jpg";}
+var rozpatie = document.getElementsByClassName("zavriet")[3];
+rozpatie.onclick = function(){vokne.style.display = "none";}
+
+var a = document.getElementById("kreslim");
+   var ctx = a.getContext("2d");
+  function udkaz()
+  {
+  ctx.beginPath();
+  ctx.arc(5,5,4,0,2*Math.PI);
+  ctx.fillStyle = "purple";
+  ctx.fill();
+  ctx.stroke();
+  }
+function nedkaz()
+{
+  ctx.beginPath();
+  ctx.clearRect(0,0,10,10);
+}
+var a = document.getElementById("kreslim1");
+var ctx1 = a.getContext("2d");
+function udkaz1()
+{
+ctx1.beginPath();
+ctx1.arc(5,5,4,0,2*Math.PI);
+ctx1.fillStyle = "purple";
+ctx1.fill();
+ctx1.stroke();
+}
+function nedkaz1()
+{
+ctx1.beginPath();
+ctx1.clearRect(0,0,10,10);
+}
+var a = document.getElementById("kreslim2");
+var ctx2 = a.getContext("2d");
+function udkaz2()
+{
+ctx2.beginPath();
+ctx2.arc(5,5,4,0,2*Math.PI);
+ctx2.fillStyle = "purple";
+ctx2.fill();
+ctx2.stroke();
+}
+function nedkaz2()
+{
+ctx2.beginPath();
+ctx2.clearRect(0,0,10,10);
+}
+var a = document.getElementById("kreslim3");
+var ctx3 = a.getContext("2d");
+function udkaz3()
+{
+ctx3.beginPath();
+ctx3.arc(5,5,4,0,2*Math.PI);
+ctx3.fillStyle = "purple";
+ctx3.fill();
+ctx3.stroke();
+}
+function nedkaz3()
+{
+ctx3.beginPath();
+ctx3.clearRect(0,0,10,10);
+}
+var a = document.getElementById("kreslim4");
+var ctx4 = a.getContext("2d");
+function udkaz4()
+{
+ctx4.beginPath();
+ctx4.arc(5,5,4,0,2*Math.PI);
+ctx4.fillStyle = "purple";
+ctx4.fill();
+ctx4.stroke();
+}
+function nedkaz4()
+{
+ctx4.beginPath();
+ctx4.clearRect(0,0,10,10);
+}
+
+</script>
 </body>
 
 </html>

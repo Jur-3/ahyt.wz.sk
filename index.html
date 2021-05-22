@@ -18,7 +18,7 @@
       #vrch{margin-top:250px;}
       #vrch p {display:inline;}
       a:hover img{transform:scale(1.5);-webkit-transition: 1s;transition: 1s;}
-      a{text-decoration:none;color:black;padding-left: 15px;}
+      a{text-decoration: none;color:black;padding-left: 15px;}
       a:hover{color:red;}
       #dole{margin-top:100px;}
       @media only screen and (max-width: 700px){#vrch p {display: block;} #dole img{width:100%;}}
@@ -28,16 +28,22 @@
 
     <div id="vrch">
       <h3>Jur</h3>
-      <p><a href="index.html">Domov</a></p>
-      <p><a href="dubova.html">Rajecká Dolina</a></p>
-      <p><a href="zapis.html">Zápis v JavaScripte</a></p>
-      <p><a href="mailto:jur3@protonmail.com">jur3@protonmail.com</a>
-      <a href="https://www.facebook.com/juraj.vanak.3" target="_blank">
+      <p><a href="index.html"onmouseover="udkaz()"onmouseout="nedkaz()">Domov
+        <canvas id="kreslim" width="10px" height="10px"></a></p>
+      <p><a href="dubova.html"onmouseover="udkaz1()"onmouseout="nedkaz1()">
+        Rajecká Dolina <canvas id="kreslim1" width="10px" height="10px"></a></p>
+      <p><a href="zapis.html"onmouseover="udkaz2()"onmouseout="nedkaz2()">
+        Zápis v JavaScripte <canvas id="kreslim2" width="10px" height="10px"></a></p>
+        <p><a href="odkaz.html"onmouseover="udkaz3()"onmouseout="nedkaz3()">
+        Ďalší návrh <canvas id="kreslim3" width="10px" height="10px"></a></p>
+      <p><a href="mailto:jur3@protonmail.com"onmouseover="udkaz4()"onmouseout="nedkaz4()">
+        jur3@protonmail.com <canvas id="kreslim4" width="10px" height="10px"></a>
+      <a href="https://www.facebook.com/juraj.vanak.4" target="_blank">
     <img src="facebook.png" alt="fb"></a></p>
    </div>
 
       <div id="dole">
-      <p>Učím sa programovať v HTML, CSS a JavaScripte <img id="obra" src="js.jpg"></p>
+      <p>Programovanie v HTML, CSS a JavaScripte <img id="obra" src="js.jpg"></p>
       <p>Debian Cinnamon</p>
    </div>
 
@@ -53,6 +59,83 @@
    {
      document.getElementById("obra").style.transform = "rotate(0deg)";
    }
+   
+    var a = document.getElementById("kreslim");
+   var ctx = a.getContext("2d");
+  function udkaz()
+  {
+  ctx.beginPath();
+  ctx.arc(5,5,4,0,2*Math.PI);
+  ctx.fillStyle = "purple";
+  ctx.fill();
+  ctx.stroke();
+  }
+function nedkaz()
+{
+  ctx.beginPath();
+  ctx.clearRect(0,0,10,10);
+}
+var a = document.getElementById("kreslim1");
+var ctx1 = a.getContext("2d");
+function udkaz1()
+{
+ctx1.beginPath();
+ctx1.arc(5,5,4,0,2*Math.PI);
+ctx1.fillStyle = "purple";
+ctx1.fill();
+ctx1.stroke();
+}
+function nedkaz1()
+{
+ctx1.beginPath();
+ctx1.clearRect(0,0,10,10);
+}
+var a = document.getElementById("kreslim2");
+var ctx2 = a.getContext("2d");
+function udkaz2()
+{
+ctx2.beginPath();
+ctx2.arc(5,5,4,0,2*Math.PI);
+ctx2.fillStyle = "purple";
+ctx2.fill();
+ctx2.stroke();
+}
+function nedkaz2()
+{
+ctx2.beginPath();
+ctx2.clearRect(0,0,10,10);
+}
+var a = document.getElementById("kreslim3");
+var ctx3 = a.getContext("2d");
+function udkaz3()
+{
+ctx3.beginPath();
+ctx3.arc(5,5,4,0,2*Math.PI);
+ctx3.fillStyle = "purple";
+ctx3.fill();
+ctx3.stroke();
+}
+function nedkaz3()
+{
+ctx3.beginPath();
+ctx3.clearRect(0,0,10,10);
+}
+var a = document.getElementById("kreslim4");
+var ctx4 = a.getContext("2d");
+function udkaz4()
+{
+ctx4.beginPath();
+ctx4.arc(5,5,4,0,2*Math.PI);
+ctx4.fillStyle = "purple";
+ctx4.fill();
+ctx4.stroke();
+}
+function nedkaz4()
+{
+ctx4.beginPath();
+ctx4.clearRect(0,0,10,10);
+}
+    
    </script>
 
   </body>
