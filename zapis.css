@@ -1,0 +1,23 @@
+*{box-sizing:border-box;}
+html{scroll-behavior: smooth;}
+  body {background-image: url("kresba.png");background-repeat:no-repeat;
+  background-attachment:fixed;background-position:top center;font-size: 100%;
+text-align: center;}
+  #vrch{margin-top:250px;}
+  #vrch p {display:inline;}
+  a:hover img{transform:scale(1.5);-webkit-transition: 1s;transition: 1s;}
+  a{text-decoration: none;color:black;padding-left: 15px;}
+  a:hover{color:red;}
+  h3{text-align: center;}
+  input{box-sizing: border-box;}
+  input[type=submit]{background-color: green;color: white;}
+  table.center{margin-left: auto;margin-right: auto;}
+  #t1{margin-top:100px;}
+  #t1 td{padding:20px;}
+  #message{display: none;}
+  .valid {color: green;}
+  .valid::before{position: relative;left: -5px;content: "✔";}
+  .invalid{color: red;}
+  .invalid::before{position: relative;left: -5px;content: "✖";}
+  #v{display: none;}
+  @media only screen and (max-width: 700px){#vrch p {display: block;}#t1 td{padding:0px;}}
